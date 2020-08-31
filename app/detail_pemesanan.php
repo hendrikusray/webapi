@@ -13,9 +13,9 @@ class detail_pemesanan extends Model
         'ID_SPAREPARTS','ID_PEMESANAN','JUMLAH_PEMESANAN','HARGA_BELI_PEMESANAN','SATUAN'
     ];
 
-    public function detail_pemesanan()
+    public function pemesanan_sparepart()
     {
-        return $this->belongsTo(detail_pemesanan::class,'ID_PEMESANAN');
+        return $this->belongsTo(pemesanan_sparepart::class,'ID_PEMESANAN');
     }
     public function sparepart()
     {

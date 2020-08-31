@@ -14,8 +14,8 @@ class Pegawai_Onduty_Transformer extends TransformerAbstract
     {
         return [
             'ID_PEGAWAI_ONDUTY' => $pegawai_onduty->ID_PEGAWAI_ONDUTY,
-            'ID_TRANSAKSI' => $pegawai_onduty->ID_TRANSAKSI,
-            'ID_PEGAWAI' => $pegawai_onduty->ID_PEGAWAI,
+            'ID_TRANSAKSI' => $pegawai_onduty->transaksi_penjualan->ID_TRANSAKSI,
+            'ID_PEGAWAI' => $pegawai_onduty->pegawai->ID_PEGAWAI,
            
             
         ];

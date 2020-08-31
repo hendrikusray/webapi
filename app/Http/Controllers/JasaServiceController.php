@@ -19,9 +19,10 @@ class JasaServiceController extends RestController
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {  
         $jasa_service = jasa_service::all();
-        return response()->json($jasa_service,200);
+        $response = $this->generateCollection($jasa_service);
+        return $this->sendResponse($response);
     }
     /**
      * Show the form for creating a new resource.
@@ -50,14 +51,9 @@ class JasaServiceController extends RestController
             $jasa_service->NAMA_JASA=$request->NAMA_JASA;
             $jasa_service->HARGA_JASA=$request->HARGA_JASA;
             $success=$jasa_service->save();
-
-            if($success){
-                return response()->json('it is worked', 201);
-            }else{
-                return response()->json('failed to save the data!',500);
-            }
-
+            return response()->json('Success', 200);
         } catch (\Exception $e) {
+            throw $e;
             return $this->sendIseResponse($e->getMessage());
         }
         
@@ -75,8 +71,9 @@ class JasaServiceController extends RestController
             $response = $this->generateItem($jasa_service);
             return $this->sendResponse($response);
         } catch (ModelNotFoundException $e) {
-            return $this->sendNotFoundResponse('JASA TIDAK ADA');
+            return $this->sendNotFoundResponse('Service is not found');
         } catch (\Exception $e) {
+            throw $e;
             return $this->sendIseResponse($e->getMessage());
         }
     }
@@ -100,23 +97,22 @@ class JasaServiceController extends RestController
     public function update(Request $request, $id)
     {
         try{
-            $jasa_service=jasa_service::find($id);
-            if(!is_null($request->NAMA_JASA)){
-                $jasa_service->NAMA_JASA=$request->NAMA_JASA;
-            }if(!is_null($request->HARGA_JASA))
-            {
-                $jasa_service->HARGA_JASA=$request->HARGA_JASA;
-            }
-            $success=$jasa_service->save();
+            $this->validate($request,[
+                'NAMA_JASA' => 'required',
+                'HARGA_JASA' => 'required'
+            ]); 
 
-            if($success){
-                return response()->json('it is worked', 201);
-            }else{
-                return response()->json('failed to save the data!',500);
-            }
+            $jasa_service=jasa_service::find($id);
+
+            $jasa_service->update([
+                'NAMA_JASA'=>$request->NAMA_JASA,          
+                'HARGA_JASA'=>$request->HARGA_JASA,
+            ]);
+            return response()->json('Success', 200);
         }catch(ModelNotFoundException $e) {
-            return $this->sendNotFoundResponse('CABANG TIDAK ADA');
+            return $this->sendNotFoundResponse('Service is not found');
         }catch(\Exception $e) {
+            throw $e;
             return $this->sendIseResponse($e->getMessage());
         }
     }
@@ -133,8 +129,9 @@ class JasaServiceController extends RestController
             $jasa_service->delete();
             return response()->json('Success',200);
         } catch (ModelNotFoundException $e) {
-            return $this->sendNotFoundResponse('service not found!');
+            return $this->sendNotFoundResponse('Service is not found!');
         } catch (\Exception $e) {
+            throw $e;
             return $this->sendIseResponse($e->getMessage());
         }
     }

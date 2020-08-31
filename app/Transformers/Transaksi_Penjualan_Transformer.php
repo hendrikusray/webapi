@@ -14,13 +14,15 @@ class Transaksi_Penjualan_Transformer extends TransformerAbstract
     {
         return [
             'ID_TRANSAKSI' => $transaksi_penjualan->ID_TRANSAKSI,
-            'ID_CABANG' => $transaksi_penjualan->ID_CABANG,
-            'ID_PELANGGAN' => $transaksi_penjualan->ID_PELANGGAN,
-            'TGL_TRANSAKIS' => $transaksi_penjualan->TGL_TRANSAKIS,
+            'ID_CABANG' => $transaksi_penjualan->branches->ID_CABANG,
+            'ID_PELANGGAN' => $transaksi_penjualan->pelanggan->ID_PELANGGAN,
+            'TGL_TRANSAKSI' => $transaksi_penjualan->TGL_TRANSAKSI,
             'SUBTOTAL' => $transaksi_penjualan->SUBTOTAL,
             'DISKON' => $transaksi_penjualan->DISKON,
             'GRANDTOTAL' => $transaksi_penjualan->GRANDTOTAL,
             'STATUS_TRANSAKSI' => $transaksi_penjualan->STATUS_TRANSAKSI,
+            'NAMA_PELANGGAN' => $transaksi_penjualan->pelanggan->NAMA_PELANGGAN,
+            'TELEPON_PELANGGAN' => $transaksi_penjualan->pelanggan->TELEPON_PELANGGAN
           
            
             

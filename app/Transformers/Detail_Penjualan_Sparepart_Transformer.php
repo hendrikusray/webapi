@@ -13,13 +13,15 @@ class Detail_Penjualan_Sparepart_Transformer extends TransformerAbstract
     public function transform(detail_penjualan_sparepart $detail_penjualan_sparepart)
     {
         return [
-            'ID_PENJUALAN_SPAREPART' => $detail_penjualan_sparepart->ID_PENJUALAN_SPAREPART,
+            'ID_PENJUALAN_SPAREPART' => $detail_penjualan_sparepart->ID_PENJUALAN_SPAREPART, 
             'ID_TRANSAKSI' => $detail_penjualan_sparepart->ID_TRANSAKSI,
             'ID_SPAREPARTS' => $detail_penjualan_sparepart->ID_SPAREPARTS,
-            'ID_MONTIR_ONDUTY' => $detail_penjualan_sparepart->ID_MONTIR_ONDUTY,
             'JUMLAH_SPAREPART' => $detail_penjualan_sparepart->JUMLAH_SPAREPART,
             'SUBTOTAL_SPAREPART' => $detail_penjualan_sparepart->SUBTOTAL_SPAREPART,
             'HARGA_TAMPUNG_JUAL' => $detail_penjualan_sparepart->HARGA_TAMPUNG_JUAL,
+            'NAMA_SPAREPART' => $detail_penjualan_sparepart->sparepart->NAMA_SPAREPART,
+            'TIPE' => $detail_penjualan_sparepart->sparepart->TIPE,
+            'TGL_TRANSAKSI'=>$detail_penjualan_sparepart->transaksi_penjualan->TGL_TRANSAKSI
         ];
     }
 }

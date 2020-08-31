@@ -14,7 +14,7 @@ class Sparepart_Transformer extends TransformerAbstract
     {
         return [
             'ID_SPAREPARTS' => $sparepart->ID_SPAREPARTS,
-            'KODE_PENEMPATAN' => $sparepart->KODE_PENEMPATAN,
+            'KODE_PENEMPATAN' => $sparepart->posisi->KODE_PENEMPATAN,
             'NAMA_SPAREPART' => $sparepart->NAMA_SPAREPART,
             'HARGA_BELI' => $sparepart->HARGA_BELI,
             'HARGA_JUAL' => $sparepart->HARGA_JUAL,
@@ -22,6 +22,7 @@ class Sparepart_Transformer extends TransformerAbstract
             'STOK_BARANG' => $sparepart->STOK_BARANG,
             'GAMBAR' => $sparepart->GAMBAR,
             'TIPE' => $sparepart->TIPE,
+            
            
             
         ];

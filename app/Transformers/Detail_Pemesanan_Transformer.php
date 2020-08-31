@@ -14,8 +14,8 @@ class Detail_Pemesanan_Transformer extends TransformerAbstract
     {
         return [
             'ID_DETAIL_PEMESANAN' => $detail_pemesanan->ID_DETAIL_PEMESANAN,
-            'ID_SPAREPARTS' => $detail_pemesanan->ID_SPAREPARTS,
-            'ID_PEMESANAN' => $detail_pemesanan->ID_PEMESANAN,
+            'ID_SPAREPARTS' => $detail_pemesanan->sparepart->ID_SPAREPARTS,
+            'ID_PEMESANAN' => $detail_pemesanan->pemesanan_sparepart->ID_PEMESANAN,
             'JUMLAH_PEMESANAN' => $detail_pemesanan->JUMLAH_PEMESANAN,
             'HARGA_BELI_PEMESANAN' => $detail_pemesanan->HARGA_BELI_PEMESANAN,
             'JUMLAH_PEMESANAN' => $detail_pemesanan->JUMLAH_PEMESANAN,

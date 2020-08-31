@@ -14,8 +14,8 @@ class Montir_Onduty_Transformer extends TransformerAbstract
     {
         return [
             'ID_MONTIR_ONDUTY' => $montir_onduty->ID_MONTIR_ONDUTY,
-            'ID_PEGAWAI' => $montir_onduty->ID_PEGAWAI,
-            'ID_KENDARAAN_PEL' => $montir_onduty->ID_KENDARAAN_PEL,
+            'ID_PEGAWAI' => $montir_onduty->pegawai->ID_PEGAWAI,
+            'ID_KENDARAAN_PEL' => $montir_onduty->kendaraan_pelanggan->ID_KENDARAAN_PEL,
            
             
         ];

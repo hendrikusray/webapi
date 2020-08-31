@@ -24,6 +24,7 @@ class TransaksiPenjualan extends Migration
             $table->double('DISKON');
             $table->double('GRANDTOTAL');
             $table->string('STATUS_TRANSAKSI',20);
+            $table->string('JENIS_TRANSAKSI',2);
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ class Sparepart_Motor_Transformer extends TransformerAbstract
     {
         return [
             'ID_SPAREPART_MOTOR' => $sparepart_motor->ID_SPAREPART_MOTOR,
-            'ID_SPAREPARTS' => $sparepart_motor->ID_SPAREPARTS,
-            'ID_MOTOR' => $sparepart_motor->ID_MOTOR,
+            'ID_SPAREPARTS' => $sparepart_motor->sparepart->ID_SPAREPARTS,
+            'ID_MOTOR' => $sparepart_motor->motor->ID_MOTOR,
            
             
         ];

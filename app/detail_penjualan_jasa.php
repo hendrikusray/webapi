@@ -23,6 +23,6 @@ class detail_penjualan_jasa extends Model
     }
     public function montir_onduty()
     {
-        return $this->belongsTo(motor::class,'ID_MONTIR_ONDUTY');
+        return $this->belongsTo(montir_onduty::class,'ID_MONTIR_ONDUTY');
     }
 }

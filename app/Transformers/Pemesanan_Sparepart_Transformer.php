@@ -14,7 +14,7 @@ class Pemesanan_Sparepart_Transformer extends TransformerAbstract
     {
         return [
             'ID_PEMESANAN' => $pemesanan_sparepart->ID_PEMESANAN,
-            'ID_SUPPLIER' => $pemesanan_sparepart->ID_SUPPLIER,
+            'ID_SUPPLIER' => $pemesanan_sparepart->supplier->ID_SUPPLIER,
             'TGL_PEMESANAN' => $pemesanan_sparepart->TGL_PEMESANAN,
             'GRANDTOTAL_PEMESANAN' => $pemesanan_sparepart->GRANDTOTAL_PEMESANAN,
             'STATUS_PEMESANAN' => $pemesanan_sparepart->STATUS_PEMESANAN,

@@ -19,8 +19,6 @@ class DetailPenjualanSparepart extends Migration
             $table->foreign('ID_TRANSAKSI')->references('ID_TRANSAKSI')->on('transaksi_penjualan')->onUpdate('cascade');
             $table->string('ID_SPAREPARTS')->nullable();
             $table->foreign('ID_SPAREPARTS')->references('ID_SPAREPARTS')->on('sparepart')->onUpdate('cascade');
-            $table->integer('ID_MONTIR_ONDUTY')->unsigned();
-            $table->foreign('ID_MONTIR_ONDUTY')->references('ID_MONTIR_ONDUTY')->on('montir_onduty')->onUpdate('cascade');
            $table->integer('JUMLAH_SPAREPART');
            $table->double('SUBTOTAL_SPAREPART');
             $table->double('HARGA_TAMPUNG_JUAL');

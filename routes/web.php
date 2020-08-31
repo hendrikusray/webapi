@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('verify/{verifycode}','UserController@emailverification')->name('verifemail');
+
+Route::get('/{any}', function(){
+    return view('index');
+})->where('any', '([A-z\d-\/_.]+)?');
+
+
+
+
+
+
